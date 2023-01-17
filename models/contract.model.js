@@ -27,7 +27,6 @@ const contratoSchema = {
         type: String,
         enum: ['nif', 'nie', 'cif'],
         required: true,
-        unique: true
     },
     cp: {
         type: String,

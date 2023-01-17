@@ -12,7 +12,8 @@ const contractsRouter = require("./routers/contracts.router");
 
 
 //middleware
-app.use("/contracts", contractsRouter);
+app.use('/contratos', contractsRouter);
+// app.use('/localidades')
 
 
 app.use((req, res) => res.status(404).json({ message: "Not found url -> " + req.url }));

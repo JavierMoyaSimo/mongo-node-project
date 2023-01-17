@@ -17,7 +17,7 @@ contractsRouter.get("/:id", contractsGetOneController);
 contractsRouter.post("/", contractsCreateController);
 contractsRouter.delete("/:id", contractsDeleteController);
 contractsRouter.put("/:id", contractsPutController);
-contractsRouter.patch("/:id", contractsPatchController);
+// contractsRouter.patch("/:id", contractsPatchController);
 
 
 

@@ -1,50 +1,45 @@
 
 ###
-POST http://localhost:3000/contracts
+POST http://localhost:3000/contratos/
 Content-Type: application/json
 
+
 {
-  "name": "Javi",
-  "lastname1": "Moya",
-  "lastname2": "Simo",
-  "document": "nif",
-  "cp": 7.8,
-  "locality": "Comedy",
-  "address": "",
-  "phone":644234111,
+  "nombre": "Julio",
+  "apellido1": "Salinas",
+  "apellido2": "Lujero",
+  "documento": "nif",
+  "cp": "46022",
+  "localidad": "Valencia",
+  "direccion": "Avenida Pío- 20",
+  "telefono":"688237111"
 }
 
 ###
-GET http://localhost:3000/contracts
+GET http://localhost:3000/contratos/
 ###
 
-GET http://localhost:3000/contracts?title=La vide de brian
+GET http://localhost:3000/contratos/63c6dc5cab4c5e2bfd5288de
 
 
-###
-GET http://localhost:3000/contracts/32552867-4d57-43f4-8788-406f336431cd
 
 
 ###
-PUT http://localhost:3000/contracts/32552867-4d57-43f4-8788-406f336431cd
+PUT http://localhost:3000/contratos/63c6dc5cab4c5e2bfd5288de
 Content-Type: application/json
 
 {
-  "name": "piwi",
-  "lastnme1": 1997,
-  "phone": 644233118
-  
-}
+    "nombre": "Javierito",
+    "apellido1": "Moyaaa",
+    "apellido2": "Simooo",
+    "documento": "nif",
+    "cp": "46011",
+    "localidad": "Valencia",
+    "direccion": "Calle Serreria- 20",
+    "telefono": "644234111"
+    }
+
+
 
 ###
-PATCH http://localhost:3000/contracts/32552867-4d57-43f4-8788-406f336431cd
-Content-Type: application/json
-
-{
-  "genre": "Comedy",
-  "rating": 9.7
-
-}
-
-###
-DELETE http://localhost:3000/contracts/32552867-4d57-43f4-8788-406f336431cd
+DELETE http://localhost:3000/contratos/63c6dc5cab4c5e2bfd5288de

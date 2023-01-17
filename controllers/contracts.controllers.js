@@ -1,9 +1,9 @@
-const ContractModel = require("../models/contract.model.js");
+const ContratoModel = require("../models/contract.model.js");
 
 //listcontracts (LISTADO DE CONTRATOS)
 const contractsGetAllController = async (req, res) => {
     const queryParameters = req.query || {};
-    const contracts = await ContractModel.find(queryParameters);
+    const contracts = await ContratoModel.find(queryParameters);
     res.json(contracts);
 
 };
@@ -11,7 +11,7 @@ const contractsGetAllController = async (req, res) => {
 //Contract by ID
 const contractsGetOneController = async (req, res) => {
     const { id } = req.params;
-    const contractFound = await contractFindOne(id)
+    const contractFound = await ContratoModel.findOne({ id })
     if (contractFound) {
         res.json(contractFound);
     } else {
@@ -23,7 +23,7 @@ const contractsGetOneController = async (req, res) => {
 const contractsCreateController = async (req, res) => {
     try {
         const contract = req.body;
-        const contractCreated = new ContractModel(contract);
+        const contractCreated = new ContratoModel(contract);
         await contractCreated.save();
         res.status(201).json(contractCreated);
     } catch (error) {
@@ -34,7 +34,7 @@ const contractsCreateController = async (req, res) => {
 //delete contract (BORRAR CONTRATO)
 const contractsDeleteController = async (req, res) => {
     const { id } = req.params;
-    const contractFound = await contractFindOne(id)
+    const contractFound = await ContratoModel({ id })
     if (contractFound) {
         await contractFound.remove();
         res.json({ message: "Contract deleted" });
@@ -47,7 +47,7 @@ const contractsDeleteController = async (req, res) => {
 const contractsPutController = async (req, res) => {
     const { id } = req.params;
     const contract = req.body;
-    const contractFound = await contractFindOne(id)
+    const contractFound = await ContratoModel({ id })
     if (contractFound) {
         contract._id = id;
         await contractFound.replaceOne(contract);
@@ -59,20 +59,20 @@ const contractsPutController = async (req, res) => {
 
 
 //modifycontract (MODIFICAR CONTRATO)modificaciones parciales
-const contractsPatchController = async (req, res) => {
-    const { id } = req.params;
-    const contract = req.body;
-    const contractFound = await contractFindOne(id)
-    if (contractFound) {
-        for (const key in contract) {
-            contractFound[key] = contract[key];
-        }
-        await contractFound.save();
-        res.json(contractFound);
-    } else {
-        res.status(204).json({ message: "Contract not found" });
-    }
-};
+// const contractsPatchController = async (req, res) => {
+//     const {id } = req.params;
+//     const contract = req.body;
+//     const contractFound = await ContratoModel({id})
+//     if (contractFound) {
+//         for (const key in contract) {
+//             contractFound[key] = contract[key];
+//         }
+//         await contractFound.save();
+//         res.json(contractFound);
+//     } else {
+//         res.status(204).json({ message: "Contract not found" });
+//     }
+// };
 
 module.exports = {
     contractsGetAllController,
@@ -80,5 +80,5 @@ module.exports = {
     contractsCreateController,
     contractsDeleteController,
     contractsPutController,
-    contractsPatchController,
+    // contractsPatchController,
 };
