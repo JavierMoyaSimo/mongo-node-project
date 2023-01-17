@@ -1,8 +1,7 @@
 
 const mongoose = require("../config/mongoose.config.js");
 
-// const mongoose = require('mongoose');
-// const contractSchema = new mongoose.Schema({});
+
 
 
 
@@ -44,7 +43,6 @@ const contratoSchema = {
     },
     telefono: {
         type: String,
-        unique: true,
         required: true,
         minLength: 9,
         maxLength: 9,

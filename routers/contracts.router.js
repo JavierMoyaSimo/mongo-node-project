@@ -8,16 +8,17 @@ const {
     contractsCreateController,
     contractsDeleteController,
     contractsPutController,
-    contractsPatchController,
+    // contractsPatchController,
 } = require("../controllers/contracts.controllers.js");
 
 
-contractsRouter.get("/", contractsGetAllController);
-contractsRouter.get("/:id", contractsGetOneController);
-contractsRouter.post("/", contractsCreateController);
-contractsRouter.delete("/:id", contractsDeleteController);
-contractsRouter.put("/:id", contractsPutController);
-// contractsRouter.patch("/:id", contractsPatchController);
+contractsRouter.get("/listcontracts", contractsGetAllController);
+contractsRouter.get("/listcontracts/:id", contractsGetOneController);
+contractsRouter.post("/addcontract", contractsCreateController);
+contractsRouter.delete("/deletecontract/:id", contractsDeleteController);
+contractsRouter.put("/modifycontract/:id", contractsPutController);
+// contractsRouter.patch("/modifycontract/:id", contractsPatchController);
+
 
 
 

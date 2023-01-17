@@ -1,45 +1,68 @@
 
 ###
-POST http://localhost:3000/contratos/
+POST http://localhost:3000/contracts/addcontract
 Content-Type: application/json
 
 
 {
-  "nombre": "Julio",
-  "apellido1": "Salinas",
-  "apellido2": "Lujero",
+  "nombre": "Roberto",
+  "apellido1": "Luján",
+  "apellido2": "Curí",
   "documento": "nif",
   "cp": "46022",
   "localidad": "Valencia",
-  "direccion": "Avenida Pío- 20",
-  "telefono":"688237111"
+  "direccion": "Avenida RAu- 19",
+  "telefono":"653845197"
 }
 
 ###
-GET http://localhost:3000/contratos/
+GET http://localhost:3000/contracts/listcontracts
 ###
 
-GET http://localhost:3000/contratos/63c6dc5cab4c5e2bfd5288de
+GET http://localhost:3000/contracts/listcontracts/63c6d5e15580d0ed275030ee
 
 
 
 
 ###
-PUT http://localhost:3000/contratos/63c6dc5cab4c5e2bfd5288de
+PUT http://localhost:3000/contracts/modifycontract/63c7074086de77a22398f435
 Content-Type: application/json
 
 {
-    "nombre": "Javierito",
-    "apellido1": "Moyaaa",
-    "apellido2": "Simooo",
-    "documento": "nif",
-    "cp": "46011",
-    "localidad": "Valencia",
-    "direccion": "Calle Serreria- 20",
-    "telefono": "644234111"
+    "nombre": "Vicent",
+    "apellido1": "joj",
+    "apellido2": "ñas",
+    "documento": "nie",
+    "cp": "46012",
+    "localidad": "Valenciaa",
+    "direccion": "Calle Jesuss- 20",
+    "telefono": "747234119"
     }
 
 
 
 ###
-DELETE http://localhost:3000/contratos/63c6dc5cab4c5e2bfd5288de
+DELETE http://localhost:3000/contracts/deletecontract/63c711b11d6fae3186497dee
+
+
+###
+GET http://localhost:3000/localities/getlocalidad
+
+
+###
+GET http://localhost:3000/localities/getlocalidad/46011
+
+
+
+
+###
+POST http://localhost:3000/localities/addlocality
+Content-Type: application/json
+
+
+{
+  "codigo_postal": "46111",
+  "municipio_id": "00000",
+  "municipio_nombre": "Lujerojeje"
+  
+}

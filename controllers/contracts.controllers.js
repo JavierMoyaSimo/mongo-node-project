@@ -10,8 +10,8 @@ const contractsGetAllController = async (req, res) => {
 
 //Contract by ID
 const contractsGetOneController = async (req, res) => {
-    const { id } = req.params;
-    const contractFound = await ContratoModel.findOne({ id })
+    const id = req.params.id;
+    const contractFound = await ContratoModel.findById(id)
     if (contractFound) {
         res.json(contractFound);
     } else {
@@ -33,8 +33,8 @@ const contractsCreateController = async (req, res) => {
 
 //delete contract (BORRAR CONTRATO)
 const contractsDeleteController = async (req, res) => {
-    const { id } = req.params;
-    const contractFound = await ContratoModel({ id })
+    const id = req.params.id;
+    const contractFound = await ContratoModel.findById(id)
     if (contractFound) {
         await contractFound.remove();
         res.json({ message: "Contract deleted" });
@@ -45,11 +45,11 @@ const contractsDeleteController = async (req, res) => {
 
 //modifycontract (MODIFICAR CONTRATO)reemplazo completo
 const contractsPutController = async (req, res) => {
-    const { id } = req.params;
+    const  id  = req.params.id;
     const contract = req.body;
-    const contractFound = await ContratoModel({ id })
+    const contractFound = await ContratoModel.findById( id )
     if (contractFound) {
-        contract._id = id;
+        contract.id = id;
         await contractFound.replaceOne(contract);
         res.json(contract);
     } else {
@@ -58,21 +58,7 @@ const contractsPutController = async (req, res) => {
 };
 
 
-//modifycontract (MODIFICAR CONTRATO)modificaciones parciales
-// const contractsPatchController = async (req, res) => {
-//     const {id } = req.params;
-//     const contract = req.body;
-//     const contractFound = await ContratoModel({id})
-//     if (contractFound) {
-//         for (const key in contract) {
-//             contractFound[key] = contract[key];
-//         }
-//         await contractFound.save();
-//         res.json(contractFound);
-//     } else {
-//         res.status(204).json({ message: "Contract not found" });
-//     }
-// };
+
 
 module.exports = {
     contractsGetAllController,
@@ -80,5 +66,5 @@ module.exports = {
     contractsCreateController,
     contractsDeleteController,
     contractsPutController,
-    // contractsPatchController,
+   
 };
