@@ -22,7 +22,4 @@ contractsRouter.patch("/:id", contractsPatchController);
 
 
 
-
-
-
 module.exports = contractsRouter;

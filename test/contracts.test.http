@@ -1,0 +1,50 @@
+
+###
+POST http://localhost:3000/contracts
+Content-Type: application/json
+
+{
+  "name": "Javi",
+  "lastname1": "Moya",
+  "lastname2": "Simo",
+  "document": "nif",
+  "cp": 7.8,
+  "locality": "Comedy",
+  "address": "",
+  "phone":644234111,
+}
+
+###
+GET http://localhost:3000/contracts
+###
+
+GET http://localhost:3000/contracts?title=La vide de brian
+
+
+###
+GET http://localhost:3000/contracts/32552867-4d57-43f4-8788-406f336431cd
+
+
+###
+PUT http://localhost:3000/contracts/32552867-4d57-43f4-8788-406f336431cd
+Content-Type: application/json
+
+{
+  "name": "piwi",
+  "lastnme1": 1997,
+  "phone": 644233118
+  
+}
+
+###
+PATCH http://localhost:3000/contracts/32552867-4d57-43f4-8788-406f336431cd
+Content-Type: application/json
+
+{
+  "genre": "Comedy",
+  "rating": 9.7
+
+}
+
+###
+DELETE http://localhost:3000/contracts/32552867-4d57-43f4-8788-406f336431cd
