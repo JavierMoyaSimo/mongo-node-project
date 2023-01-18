@@ -45,16 +45,24 @@ const contractsDeleteController = async (req, res) => {
 
 //modifycontract (MODIFICAR CONTRATO)reemplazo completo
 const contractsPutController = async (req, res) => {
-    const  id  = req.params.id;
+    const id = req.params.id;
     const contract = req.body;
-    const contractFound = await ContratoModel.findById( id )
-    if (contractFound) {
-        contract.id = id;
-        await contractFound.replaceOne(contract);
-        res.json(contract);
-    } else {
+    const contractFound = await ContratoModel.findById(id)
+    try {
+        if (contractFound) {
+            contract.id = id;
+            await contractFound.replaceOne(contract);
+            res.json(contract);
+        } else {
+            res.status(204).json({ message: "Contract not found" });
+        }
+
+    } catch (error) {
         res.status(204).json({ message: "Contract not found" });
+        res.send(error);
+
     }
+
 };
 
 
@@ -66,5 +74,5 @@ module.exports = {
     contractsCreateController,
     contractsDeleteController,
     contractsPutController,
-   
+
 };

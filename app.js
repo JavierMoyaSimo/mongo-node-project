@@ -1,9 +1,26 @@
 const express = require("express");
-// const mongoose = require("mongoose");
-
-
-
 const app = express();
+// const mongoose = require("mongoose");
+const cors = require("cors");
+
+app.use(cors());
+//SALTARSE POLITICA CORS DE GOOGLE CHROME PARA PRUEBAS LOCALES CON EL FRONTED
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    );
+    res.setHeader(
+        "Access-Control-Allow-Methods",
+        "GET, POST, PUT, PATCH, DELETE,OPTIONS"
+    );
+    next();
+});
+
+
+
+
 
 app.use(express.json());
 

@@ -24,8 +24,8 @@ const contratoSchema = {
     },
     documento: {
         type: String,
-        enum: ['nif', 'nie', 'cif'],
-        required: true,
+        required: true,       
+
     },
     cp: {
         type: String,

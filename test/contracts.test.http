@@ -1,6 +1,6 @@
 
 ###
-POST http://localhost:3000/contracts/addcontract
+POST http://localhost:3002/contracts/addcontract
 Content-Type: application/json
 
 
@@ -16,47 +16,47 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/contracts/listcontracts
+GET http://localhost:3002/contracts/listcontracts
 ###
 
-GET http://localhost:3000/contracts/listcontracts/63c6d5e15580d0ed275030ee
+GET http://localhost:3002/contracts/listcontracts/63c6cfda7e674e61d77fceca
 
 
 
 
 ###
-PUT http://localhost:3000/contracts/modifycontract/63c7074086de77a22398f435
+PUT http://localhost:3002/contracts/modifycontract/63c702b395e30a5e509b5b94
 Content-Type: application/json
 
 {
-    "nombre": "Vicent",
-    "apellido1": "joj",
-    "apellido2": "ñas",
-    "documento": "nie",
-    "cp": "46012",
-    "localidad": "Valenciaa",
-    "direccion": "Calle Jesuss- 20",
-    "telefono": "747234119"
+   "nombre": "Pepe",
+    "apellido1": "Luján",
+    "apellido2": "Curí",
+    "documento": "12355567F",
+    "cp": "46022",
+    "localidad": "Valencia",
+    "direccion": "Avenida Jesús- 19",
+    "telefono": "788237111"
     }
 
 
 
 ###
-DELETE http://localhost:3000/contracts/deletecontract/63c711b11d6fae3186497dee
+DELETE http://localhost:3002/contracts/deletecontract/63c7074086de77a22398f435
 
 
 ###
-GET http://localhost:3000/localities/getlocalidad
+GET http://localhost:3002/localities/getlocalidad
 
 
 ###
-GET http://localhost:3000/localities/getlocalidad/46011
+GET http://localhost:3002/localities/getlocalidad/46011
 
 
 
 
 ###
-POST http://localhost:3000/localities/addlocality
+POST http://localhost:3002/localities/addlocality
 Content-Type: application/json
 
 
